@@ -132,7 +132,17 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        int numberOfOccurences = getNumberOfOccurrences(array, valueToRemove);
+        String[] newArr = new String[array.length - numberOfOccurences];
+        //loop to initialize and declare new values to newArr;
+        for(int i = 0, j = 0; i < array.length; i++){
+            if(!array[i].equals(valueToRemove)){
+                newArr[j] = array[i];
+                j++;
+            }
+        }
+        System.out.println(Arrays.toString(newArr));
+        return newArr;
     }
 
     /**

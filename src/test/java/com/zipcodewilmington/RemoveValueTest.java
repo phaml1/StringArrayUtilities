@@ -7,7 +7,7 @@ public class RemoveValueTest {
 
     @Test
     public void testRemoveValue() {
-        String[] array = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"};
+        String[] array = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "The"};
         String[] expected = {"quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"};
         String[] actual = StringArrayUtils.removeValue(array, "The");
         Assert.assertEquals(expected, actual);
