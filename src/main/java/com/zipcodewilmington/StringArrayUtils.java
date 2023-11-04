@@ -80,9 +80,34 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        String alphabet = "abcdefghijklmnopqurstuvwxyz";
-        for(int i = 0; i < 26; )
-        return false;
+       /* String alphabet = "abcdefghijklmnopqurstuvwxyz";
+        char[] alpha = alphabet.toCharArray();
+        for(int i = 0; i < array.length; i++){
+            char[] arrayChars = array[i].toCharArray();
+            for (int j = 0; j < 26; j++) {
+                /*if (arrayChars.length == 1){
+                    return arrayChars[0] == alpha[j];
+                }
+                if (arrayChars[i] == alpha[j] || ){
+                    return true;
+                }
+            }
+        }
+        return false;*/
+        boolean[] alpha = new boolean[26];
+        for(int i = 0; i < array.length; i++){
+            for (int j = 0; j < 26; j++) {
+                int letter = array[i].charAt(j) - 'a';
+                alpha[letter] = true;
+            }
+        }
+
+        for(int i = 0; i < 26; i++){
+            if(!alpha[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -91,7 +116,14 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int count = 0;
+        //loop through array for value at i index
+        for(int i = 0; i < array.length; i++){
+            if(array[i].equals(value)){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
