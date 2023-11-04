@@ -1,5 +1,8 @@
 package com.zipcodewilmington;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -42,6 +45,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for (String s : array) {
+            if (s.equals(value)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -49,8 +57,13 @@ public class StringArrayUtils {
      * @param array of String objects
      * @return an array with identical contents in reverse order
      */ // TODO
-    public static String[] reverse(String[] array) {
-        return null;
+    public static String[] reverse(String[] arrays) {
+        for(int i = 0; i < arrays.length/2; i++){
+            String temp = arrays[i];
+            arrays[i] = arrays[arrays.length - i - 1];
+            arrays[arrays.length - i - 1] = temp;
+        }
+        return arrays;
     }
 
     /**
@@ -58,7 +71,8 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        String[] reverse = reverse(array.clone());
+        return Arrays.toString(array).equals(Arrays.toString(reverse));
     }
 
     /**
@@ -66,6 +80,8 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+        String alphabet = "abcdefghijklmnopqurstuvwxyz";
+        for(int i = 0; i < 26; )
         return false;
     }
 
